@@ -1,0 +1,5 @@
+O tema escolhido foi dado como base na area agricola , pegando o indice kp e o clima do momento .
+Os lugares de coleta foram :
+indice_kp :> https://services.swpc.noaa.gov/json/planetary_k_index_1m.json
+dados do dispositivo :> https://ipinfo.io/json
+clima :> https://api.open-meteo.com/v1/forecast
