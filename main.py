@@ -6,7 +6,7 @@ from sqlalchemy import create_engine, inspect, Column, Integer, String, Float, D
 from datetime import datetime
 
 USER = 'root'
-PASSWORD = 'MinhaSenha'
+PASSWORD = 'MinhaSenhaSegura'
 HOST = '127.0.0.1'
 PORT = '3306'
 DB_NAME = 'Banco_geral'
@@ -85,16 +85,16 @@ class main:
             print("Atualizando dados do dispositivo...")
             filtro = {'id': 1}
             novos_dados = {
-                'ip': dados['ip'],
-                'hostname': dados['hostname'],
-                'city': dados['city'],
-                'region': dados['region'],
-                'country': dados['country'],
-                'longitude': dados['longitude'],
-                'latitude': dados['latitude'],
-                'org': dados['org'],
-                'postal': dados['postal'],
-                'timezone': dados['timezone']
+                'ip': dados.get('ip'),
+                'hostname': dados.get('hostname'),
+                'city': dados.get('city'),
+                'region': dados.get('region'),
+                'country': dados.get('country'),
+                'longitude': dados.get('longitude'),
+                'latitude': dados.get('latitude'),
+                'org': dados.get('org'),
+                'postal': dados.get('postal'),
+                'timezone': dados.get('timezone')
             }
             conn.atualizar_dados('dispositivo', filtro, novos_dados)
             print("Dados do dispositivo atualizados com sucesso.")

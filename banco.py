@@ -114,3 +114,16 @@ class meusqldb:
             registros = [dict(row) for row in resultado]
             return registros
 
+    def deletar_dados(self, nome_tabela, filtro):
+        engine = self.cria_engine()
+        metadata = MetaData()
+        tabela = Table(nome_tabela, metadata, autoload_with=engine)
+
+        with engine.connect() as conn:
+            query = tabela.delete().where(
+                *(tabela.c[chave] == valor for chave, valor in filtro.items())
+            )
+            resultado = conn.execute(query)
+            conn.commit()
+            print(f"Dados deletados com sucesso da tabela '{nome_tabela}'.")
+

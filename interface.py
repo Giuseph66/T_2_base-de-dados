@@ -181,7 +181,7 @@ class Interface:
         insta_main.main()
 
         try:
-            conn = meusqldb('root', 'MinhaSenha', '127.0.0.1', '3306', 'Banco_geral')
+            conn = meusqldb('root', 'MinhaSenhaSegura', '127.0.0.1', '3306', 'Banco_geral')
             
             dados_dispo = conn.selecionar_dados('dispositivo', {'id': 1})
             if dados_dispo:
